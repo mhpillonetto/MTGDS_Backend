@@ -1,0 +1,133 @@
+SCREENS
+
+SEARCH
+---------OBJECTS-----------
+filter = {
+    
+}
+
+Status = {
+    timestamp: String,
+    Status: ENUM[]
+}
+
+Card = {
+    imageURL: String,
+    printings: [String],
+    originalText: String,
+    originalType: String,
+    id: String,
+}
+
+-getCard
+  request:
+    {
+        name: String,
+        type: String,
+        color: String,
+        manaCost: String,
+        colorIdentity: String,
+        cmc: Int,
+        colorIdentity: String,
+        type: String,
+        subtype: String,
+        "rarity": String,
+        "set": String,
+        "text": String,
+        "artist": String,
+        "number": String,
+        "power": String,
+        "toughness": String,
+    }
+
+    response:
+      {
+         cards: [Card],
+         status: Status
+      }
+      
+
+BUILD DECK
+---------OBJECTS-----------
+Deck = {
+    id: String,
+    ownerId: String,
+    name: String,
+    format: String,
+    cards: [String]/[Card] (Lista de ids ou lista de objetos carta!!),
+}
+
+-getCard
+//
+
+-getDecks
+request:
+    {
+        profileId: String,
+        format: String (Passo aqui ou filtro no front?)
+    }
+
+response:
+    {
+        status: Status,
+        myDecks: [Deck]
+    }
+
+-saveDeck
+request:
+    {
+        deck: Deck,
+        profileId: String
+    }
+
+response:
+    {
+        status
+    }
+
+COLLECTION
+---------OBJECTS-----------
+List = {
+    id: String,
+    name: String,
+    ownerId: String,
+    cards: [String]/[Card] (Lista de ids ou lista de objetos carta!!),
+}
+
+-createList
+request: 
+{
+    list: List
+}
+response: 
+{
+    status: Status
+}
+
+
+-getLists
+request:
+{
+    profileId: String
+}
+
+response:
+{
+    lists: [List],
+    status: Status
+}
+
+
+-addToList
+request:
+{
+    card: Card,
+    profileId: String,
+    listId: String
+}
+
+response: {
+    status: Status
+}
+
+

@@ -1,0 +1,15 @@
+Levantamento de requisitos
+
+Requisitos funcionais
+- O software deve permitir que o usuário consiga buscar por qualquer carta de qualquer formato, aplicando 
+variados filtros, como tipo de carta, custo de mana, texto presente na carta, etc.
+
+- o software deve conter uma area "minha coleção" e "wishlist", contendo uma listagem de todas as cartas da coleção do usuário/da wishlist desse usuário, 
+juntamente com os preços de cada uma das cartas e do total de cada lista
+
+- O software deve possuir uma ferramenta de construção de deck completa. esta deve conter:
+	x barra de busca de carta com filtro
+	x uma listagem de preços em diferentes revendedoras (padrão SCG)
+	x indicação se as cartas estão na coleção/wishlist do usário
+
+- a plataforma deve fornecer listas dos arquetipos mais utilizados por formato, bem como decklists mais comuns de cada arquetipo, e um atalho para adiciona-los a sua lista de decks 
