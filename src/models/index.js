@@ -4,10 +4,11 @@ import User from './userModel'
 import List from './listModel'
 import Deck from './deckModel'
 
+    //subir banco do mongo!!!!
 const DATABASE_URL = 'AAAAAAAAA'
 
 const connectDb = () => {
-    //subir banco do mongo!!!!
+    
   return mongoose.connect(DATABASE_URL)
 };
 
