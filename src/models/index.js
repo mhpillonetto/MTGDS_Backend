@@ -1,48 +1,18 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    unique: true,
-  }
-});
+import User from './userModel'
+import List from './listModel'
+import Deck from './deckModel'
 
-userSchema.statics.findById = async function (queryId) {
-    let user = await this.findOne({
-      id: queryId,
-    });
-    if (!user) {
-      user = await this.findOne({ id: queryId });
-    }
-    return user;
-  };
+const DATABASE_URL = 'AAAAAAAAA'
 
-export const User = mongoose.model('User', userSchema);
+const connectDb = () => {
+    //subir banco do mongo!!!!
+  return mongoose.connect(DATABASE_URL)
+};
 
-const deckSchema = new mongoose.Schema({
-    id: {
-        type: String,
-            unique: true
-    },
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    name: String,
-    format: String,
-    cardsList: [{ name: String}]
-})
+const models = { User, List, Deck }
 
-export const Decks = mongoose.model('Decks', deckSchema)
+export { connectDb }
 
-const listSchema = new mongoose.Schema({
-    id: {
-        type: String,
-            unique: true
-    },
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    name: String,
-    cardsList: [{ 
-        name: String
-        
-    }]
-})
-
-export const Lists = mongoose.model('Lists', listSchema)
+export default models
